@@ -83,6 +83,7 @@
               class="idx-filter-btn"
               :class="{ 'idx-filter-active': idxFilter === 'All' }"
               @click="idxFilter = 'All'"
+              v-scramble
             >All</button>
 
             <template v-for="(values, category) in indexCategories" :key="category">
@@ -91,9 +92,7 @@
                 v-for="val in values"
                 :key="val"
                 type="button"
-                class="idx-filter-btn"
-                :class="{ 'idx-filter-active': idxFilter === val }"
-                @click="idxFilter = val"
+                class="idx-filter-btn idx-filter-disabled"
               >{{ val }}</button>
             </template>
           </div>
@@ -255,7 +254,7 @@ function onRandomCardLeave(e: MouseEvent) {
 
 .page-main {
   flex: 1;
-  padding-top: 24px;
+  padding-top: 40px;
   padding-bottom: 80px;
 }
 
@@ -400,6 +399,11 @@ function onRandomCardLeave(e: MouseEvent) {
   text-decoration: underline;
 }
 
+.idx-filter-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 .idx-names {
   grid-column: 5 / span 5;
   display: flex;
@@ -456,7 +460,7 @@ function onRandomCardLeave(e: MouseEvent) {
 /* ====== MOBILE ====== */
 @media (max-width: 768px) {
   .page-main {
-    padding: 16px 16px 80px;
+    padding: 24px 16px 80px;
   }
 
   .pg-layout {

@@ -115,7 +115,7 @@ onBeforeUnmount(() => {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   grid-column: 5 / -1;
 }
 
@@ -143,7 +143,7 @@ onBeforeUnmount(() => {
   }
 
   .nav-links {
-    gap: 16px;
+    gap: 32px;
   }
 }
 </style>

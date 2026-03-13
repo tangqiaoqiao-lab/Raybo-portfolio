@@ -33,7 +33,7 @@
             <h2 class="info-heading">Work Experience</h2>
             <ul class="info-list info-list-plain">
               <li>
-                2022 - Present _ Lead Creative Technologist _
+                2022 - Present _ Product Engineer and Lead 3D Dataset _
                 <a
                   href="https://www.meshy.ai/"
                   target="_blank"

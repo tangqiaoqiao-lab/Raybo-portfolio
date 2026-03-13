@@ -30,6 +30,7 @@
             class="filter-tag"
             :class="{ 'filter-tag-active': archiveFilter === 'All' }"
             @click="archiveFilter = 'All'"
+            v-scramble
           >All</button>
           <button
             v-for="tag in archiveTags"
@@ -38,6 +39,7 @@
             class="filter-tag"
             :class="{ 'filter-tag-active': archiveFilter === tag }"
             @click="archiveFilter = tag"
+            v-scramble
           >{{ tag }}</button>
         </div>
 
@@ -86,7 +88,13 @@
             </p>
             <ul class="archive-index">
               <li v-for="project in filteredArchiveProjects" :key="project.slug">
-                <span class="archive-index-link">
+                <span
+                  class="archive-index-link"
+                  :class="{
+                    'archive-index-link-no-underline':
+                      noUnderlineArchiveSlugs.has(project.slug),
+                  }"
+                >
                   {{ project.year }} {{ project.title }}
                 </span>
               </li>
@@ -145,6 +153,17 @@ const archiveFilter = ref('All');
 
 const selectedProjects = getSelectedProjects();
 const archiveProjects = getArchiveProjects();
+
+const noUnderlineArchiveSlugs = new Set([
+  'portfolio-of-qiao',
+  'cnp-life-science',
+  'tmall-dungeon',
+  'figgy-travel-freak',
+  'cr-land-kitten',
+  'hotsar-website',
+  'tmall-discovery',
+  'kaola-smile-machine',
+]);
 
 const archiveTags = computed(() => {
   const tags = new Set<string>();
@@ -213,7 +232,7 @@ function onArchiveCardLeave(e: MouseEvent) {
 
 .page-main {
   flex: 1;
-  padding-top: 24px;
+  padding-top: 40px;
   padding-bottom: 80px;
 }
 
@@ -255,7 +274,7 @@ function onArchiveCardLeave(e: MouseEvent) {
   grid-column: 2 / span 2;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
   position: sticky;
   top: 24px;
   align-self: start;
@@ -265,13 +284,10 @@ function onArchiveCardLeave(e: MouseEvent) {
   all: unset;
   cursor: pointer;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .filter-tag-active {
-  text-decoration: underline;
-}
-
-.filter-tag:hover {
   text-decoration: underline;
 }
 
@@ -368,6 +384,10 @@ function onArchiveCardLeave(e: MouseEvent) {
   text-decoration: underline;
 }
 
+.archive-index-link-no-underline:hover {
+  text-decoration: none;
+}
+
 .archive-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -417,7 +437,7 @@ function onArchiveCardLeave(e: MouseEvent) {
 /* ====== Mobile ====== */
 @media (max-width: 768px) {
   .page-main {
-    padding: 16px 16px 80px;
+    padding: 24px 16px 80px;
   }
 
   .projects-layout {

@@ -5,7 +5,13 @@
     <div v-if="project" class="detail-wrapper">
       <div class="detail-layout">
         <!-- Back to List -->
-        <RouterLink to="/projects" class="subnav-back">&#x21A9; Back to List</RouterLink>
+        <RouterLink
+          to="/projects"
+          class="subnav-back"
+          v-scramble
+        >
+          &#x21A9; Back to List
+        </RouterLink>
 
         <!-- Left column: meta (sticky on desktop) -->
         <div class="detail-left-col">
@@ -55,6 +61,7 @@
             v-if="adjacent.prev"
             :to="`/projects/${adjacent.prev.slug}`"
             class="subnav-link"
+            v-scramble
           >
             &larr; Previous
           </RouterLink>
@@ -62,6 +69,7 @@
             v-if="adjacent.next"
             :to="`/projects/${adjacent.next.slug}`"
             class="subnav-link"
+            v-scramble
           >
             Next &rarr;
           </RouterLink>
@@ -208,7 +216,7 @@ const adjacent = computed(() => {
 }
 
 .subnav-back:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* --- Left column: meta (sticky) --- */
@@ -278,10 +286,12 @@ const adjacent = computed(() => {
 .subnav-link {
   color: #000000;
   text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .subnav-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* --- Cover image --- */
