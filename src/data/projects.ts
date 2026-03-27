@@ -68,23 +68,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'meshy-ai',
-    year: '2024 - now',
+    year: '2023 - Present',
     title: 'Meshy AI',
     description:
       'Meshy is a 3D AI toolkit that enables users to effortlessly create stunning 3D models and textures. It offers a suite of powerful tools, including Text-to-3D, Image-to-3D, Text-to-Texture and AI Texturing, allowing users to bring their creative visions to life in minutes. Meshy is an all-in-one stop solution for creating animated characters, catering to artists and developers in gaming, film, XR, and beyond.',
     cover: coverMeshy,
     category: 'selected',
     tags: ['AI Product', 'Website', 'Real-time Rendering'],
-    type: 'AI Product / Website / Real-time Rendering / Brand Experience',
-    role: 'Lead Creative Technologist',
+    type: 'AI Product',
+    role: 'Lead 3D Dataset and Product Engineer',
     services: 'WebGL, WebGPU, Shader, HTML, CSS, JavaScript, Infographic data visualisation, API integration, Framer, MatterJS, SVG, WebSockets',
     url: 'https://www.meshy.ai/',
     urlLabel: 'www.meshy.ai',
-    team: [
-      'Creative Technical Director: Haihang',
-      'Lead Designer / Art Director: Guangxi Cai',
-      'Creative Developer: Raybo Liu',
-    ],
     recognition: [
       'Product Hunt #1 Product of the Day',
     ],
